@@ -5,19 +5,44 @@ $(document).ready(function(){
     console.log(queryURL);
     // https://api.nytimes.com/svc/books/v3/lists.json
 // get request
-$.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-    .then(function(response){
-        console.log(response)
-    })
+
 // search term textbox
 //Number of Records to Retrieve textbox, input
 //Start Year, input box
 //End Year
 //Search (on click)
 // clear results
+let getAjax = function(search,number,start,end){
+
+    let buildURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M&q=${search}&begin_date=${start}&end_date=${end}`
+
+    $.ajax({
+        url: buildURL,
+        method: "GET"
+      })
+        .then(function(response){
+            console.log(response)
+            renderResult(response);
+        })
+
+}
+
+let renderResult = function(data){
+
+}
+
+$("#submit").on("click", function (event) {
+    event.preventDefault();
+
+    // This line grabs the input from the textbox
+    let searchTerm = $("#search").val().trim();
+    let noOfResults = $("#noOfResults").val().trim();
+    let startDate = $("#startDate").val().trim();
+    let endDate = $("#endDate").val().trim();
+
+    getAjax(searchTerm, noOfResults, startDate, endDate)
+    
+  });
 
 //Output Top Articles
 
