@@ -24,22 +24,44 @@ let getAjax = function(search,number,start,end){
       })
         .then(function(response){
             console.log(response)
-            renderResult(response);
+            renderResult(response, number);
         })
 
 }
 
-let renderResult = function(data){
+let renderResult = function(data, number){
+    $('#top-articles').empty();
+    let docArray =[];
+    data.response.docs.forEach(element => {
+        docArray.push(element)
+    });
+    console.log(number);
+    for(let i = 0; i < number;i++){
+        let articleToPrint = renderArticle(docArray[i]);
+        $('#top-articles').append(articleToPrint);
+    }
+
 
 }
 
-$("#submit").on("click", function (event) {
+let renderArticle = function(article){
+let newDiv = $('<div>').attr('class',"row");
+// console.log(article);
+let title = $("<h3>").text(article.headline.main);
+let abstract = $("<p>").text(article.abstract);
+let url = $("<a>").text(`Read more`).attr('href', article.web_url);
+newDiv.append(title).append(abstract).append(url);
+return newDiv
+
+
+}
+
+$(document).on("click", "#submit", function (event) {
     event.preventDefault();
 
     // This line grabs the input from the textbox
-    let searchTerm = $("#search").val().trim().replace(/\s/g, "+");;
+    let searchTerm = $("#search").val().trim().replace(/\s/g, "+");
     let noOfResults = $("#noOfResults").val().trim();
-    
     let startDate = $("#startDate").val().trim();
     let endDate = $("#endDate").val().trim();
     // if(startDate )
