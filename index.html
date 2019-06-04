@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patent search</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="top">
+            <img src="./assets/img/defaultPromoCrop (2).png" alt="new york times" width="600px">
+        </div>
+        
+        <div class="sub-container">
+        <div class="form-row">
+        <div class="form-group col-sm-12">
+            
+                    <p> Search term</p>
+                    <input type="text" name="Search-term" id="search">
+                    <br>
+                    <p>Select number of records</p>
+                    <select name="number-of-records" id="noOfResults">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                      </select>
+
+                    <p> start Date (optional)</p>
+                    <input type="text" name="Title Search" id="startDate">
+                
+                    <p> end Date (optional</p>
+                    <input type="text" name="Title Search" id="endDate">
+                    <br>
+                <input type="submit" id="submit" value="Submit">
+                <input type="reset">
+            </form>
+            <footer>
+                Some copyright info or perhaps some author
+                info for an &lt;article&gt;?
+              </footer>
+        </div>
+
+    </div>
+    <div class="container" id="top-articles">
+    <!-- append new divs with the class row in here -->
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
