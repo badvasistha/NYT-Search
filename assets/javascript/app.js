@@ -1,6 +1,6 @@
 // key:GBIwIdUd9LHfAwQNE14JT5BeLpePhLAD
 $(document).ready(function(){
-    var input = 
+    var input = ;
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + input + "&api-key=GBIwIdUd9LHfAwQNE14JT5BeLpePhLAD";
     console.log(queryURL);
     // https://api.nytimes.com/svc/books/v3/lists.json
